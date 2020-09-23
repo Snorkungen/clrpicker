@@ -4,6 +4,7 @@
   --color-blue-2: #024EC0;
   --color-red-1: #ff7300;
   --font-1: "Noto Sans JP", sans-serif;
+  --font-2: Cambria, Cochin, Georgia, Times, "Times New Roman", serif ;
 }
 
 * {
@@ -14,15 +15,17 @@
 
 body {
   background: var(--color-blue-2);
+  font-family: var(--font-2);
 }
 
 .con {
   height: 100vh;
   display: grid;
   grid-template-rows: 10% 80% 10%;
-  grid-template-columns: 10% auto 10%;
+  grid-template-columns: 18% auto 18%;
   justify-items: center;
   align-content: center;
+  min-width: 620px;
 }
 
 header {
@@ -32,6 +35,23 @@ header {
 header > h1 {
   font-family: var(--font-1);
   color: var(--color-green-1);
+}
+
+.howto {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-1);
+  color: var(--color-green-1);
+  padding: 2em;
+}
+.howto h1 {
+  margin-bottom: 1rem;
+}
+.howto p {
+  text-align: left;
+  line-height: 1.4rem;
 }
 
 main {
@@ -46,7 +66,7 @@ main {
   grid-template-areas: "a" "a";
 }
 .color-picker__top {
-  height: 200px;
+  height: 160px;
   background: #c8c864;
 }
 .color-picker__top > * {
@@ -74,6 +94,9 @@ main {
   outline: none;
   writing-mode: bt-lr;
   -webkit-appearance: slider-vertical;
+}
+.color-picker__bottom #slider_sdd:hover {
+  cursor: pointer;
 }
 .color-picker__contrastC {
   display: grid;
@@ -168,6 +191,25 @@ main {
 .color-picker__saved-child > button:hover {
   cursor: pointer;
   opacity: 0.6;
+}
+
+footer {
+  grid-row: 3/4;
+  grid-column: 1/4;
+  width: 100%;
+  background: var(--color-green-1);
+  position: relative;
+}
+footer p {
+  position: absolute;
+  bottom: 2.3rem;
+  right: 2.3rem;
+  font-family: var(--font-1);
+}
+footer p span {
+  font-weight: bold;
+  font-family: var(--font-2);
+  color: var(--color-red-1);
 }
 
 .hidden {

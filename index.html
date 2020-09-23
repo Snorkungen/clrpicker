@@ -16,6 +16,12 @@
         <header>
             <h1>Color picker</h1>
         </header>
+        <aside class="howto">
+            <h1>How to use</h1>
+            <p>First use the three sliders to find a color. <br><br>Second press save to save the color.<br><br>Third find another color.<br><br>Fourth press contrast check and then proceed to click the first color you saved.</p>
+            <h1>Random Info</h1>
+            <p>The horizontal slider is used to change all of the other sliders.</p>
+        </aside>
         <main>
             <div class="color-picker__container">
                 <div class="color-picker__top">
@@ -33,9 +39,15 @@
                         <button>Contrast Check</button>
                     </div>
                     <div class="color-picker__data">
-                        <span class="rgbSliderData">246</span>
-                        <span class="rgbSliderData">157</span>
-                        <span class="rgbSliderData">0</span>
+                        <div class="color-picker__data-child">
+                            Red: <span class="rgbSliderData">246</span>
+                        </div>
+                        <div class="color-picker__data-child">
+                            Green: <span class="rgbSliderData">157</span>
+                        </div>
+                        <div class="color-picker__data-child">
+                            Blue: <span class="rgbSliderData">0</span>
+                        </div>
                     </div>
                     <div class="color-picker__sliderC">
                         <input type="range" orient="vertical" value="246" min="0" max="255"
@@ -50,6 +62,12 @@
                 </div>
             </div>
         </main>
+        <aside class="longtermC__C">
+            <div class="longtermC__color" style="width: 40px; height: 40px; background: #333;"></div>
+        </aside>
+        <footer>
+            <p>Oghenochuko Oke 2020 <span>Color Picker</span></p>
+        </footer>
     </div>
 </body>
 

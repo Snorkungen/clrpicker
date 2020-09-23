@@ -103,7 +103,7 @@ function saveColor() {
         if (clrPickerSC.children[j].children[1].textContent == gIn) return true;
     }
 
-    if (clrPickerSC.children.length < 10) {
+    if (clrPickerSC.children.length < (0x4 + 0x1)) {
         let d = sk.createEl("div", clrPickerSC),
             d2 = sk.createEl("div", d),
             h = sk.createEl("h2", d),
@@ -117,7 +117,6 @@ function saveColor() {
         h2.textContent = `#${intToHex(r)}${intToHex(g)}${intToHex(b)}`;
         d2.style.background = gIn;
         del.textContent = "X"
-
 
         d.addEventListener("click", async () => {
             if (contrastCheckSwitch) {

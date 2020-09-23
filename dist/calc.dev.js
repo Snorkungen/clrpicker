@@ -100,7 +100,7 @@ function saveColor() {
     if (clrPickerSC.children[j].children[1].textContent == gIn) return true;
   }
 
-  if (clrPickerSC.children.length < 10) {
+  if (clrPickerSC.children.length < 0x4 + 0x1) {
     var d = sk.createEl("div", clrPickerSC),
         d2 = sk.createEl("div", d),
         h = sk.createEl("h2", d),
