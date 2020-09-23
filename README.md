@@ -1,2 +1,2 @@
 # clrpicker
-site that allows yo too pick colors and compare contrast
+site that allows you too pick colors and compare contrast
