@@ -64,6 +64,17 @@ main {
 .color-picker__bottom {
   margin: 0 13px;
 }
+.color-picker__bottom #slider_sdd {
+  -webkit-appearance: none;
+  padding: 3px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 3px;
+  background: var(--color-blue-2);
+  outline: none;
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+}
 .color-picker__contrastC {
   display: grid;
   grid-template-columns: auto repeat(2, 20px);
@@ -108,14 +119,17 @@ main {
 }
 .color-picker__sliderC input {
   -webkit-appearance: none;
-  height: 200px;
-  border-radius: 5px;
-  background: #ccc;
+  height: 176px;
+  border-radius: 3px;
+  background: var(--color-blue-2);
   outline: none;
   writing-mode: bt-lr;
-  /* IE */
   -webkit-appearance: slider-vertical;
-  /* WebKit */
+  padding: 3px;
+  transition: 200ms all ease;
+}
+.color-picker__sliderC input:hover {
+  cursor: pointer;
 }
 .color-picker__data {
   margin: 1rem 0 0 0;

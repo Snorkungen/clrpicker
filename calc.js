@@ -22,6 +22,11 @@ let ccc = [],
 setBG();
 
 
+rgbSlider[0].value = rgbSlider[0].value;
+rgbSlider[1].value = rgbSlider[1].value;
+rgbSlider[2].value = rgbSlider[2].value;
+
+
 for (let i = 0; i < clrPickerF.children.length; i++) {
     clrPickerF.children[i].onclick = e => {
         switch (clrPickerF.children[i].textContent) {
@@ -92,6 +97,7 @@ function saveColor() {
         g = rgbSliderData[1].textContent,
         b = rgbSliderData[2].textContent,
         gIn = `rgb( ${r},${g},${b} )`;
+        
 
     for (let j = 0; j < clrPickerSC.children.length; j++) {
         if (clrPickerSC.children[j].children[1].textContent == gIn) return true;

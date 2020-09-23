@@ -2,8 +2,6 @@
 
 var sk = new Snorkungen(); // select elements 
 
-var ccc = [],
-    contrastCheckSwitch = false;
 var rgbSliderData = document.querySelectorAll(".rgbSliderData"),
     rgbSlider = document.querySelectorAll(".rgbSlider"),
     clrPickerOut = document.querySelector(".color-picker__top"),
@@ -13,8 +11,15 @@ var rgbSliderData = document.querySelectorAll(".rgbSliderData"),
     colorPicker = document.querySelector(".color-picker__container"),
     clrPickerSCd = document.querySelectorAll(".color-picker__contrast-color"),
     clrPickerSCr = document.querySelector(".color-picker__contrastR"),
-    clrPickerSCc = document.querySelector(".color-picker__contrastC");
+    clrPickerSCc = document.querySelector(".color-picker__contrastC"),
+    clrPickerSliderS = document.querySelector("#slider_sdd");
+var ccc = [],
+    contrastCheckSwitch = false,
+    sliderSPrev = clrPickerSliderS.value;
 setBG();
+rgbSlider[0].value = rgbSlider[0].value;
+rgbSlider[1].value = rgbSlider[1].value;
+rgbSlider[2].value = rgbSlider[2].value;
 
 var _loop = function _loop(i) {
   clrPickerF.children[i].onclick = function (e) {
@@ -35,6 +40,30 @@ var _loop = function _loop(i) {
 
 for (var i = 0; i < clrPickerF.children.length; i++) {
   _loop(i);
+}
+
+clrPickerSliderS.oninput = function (e) {
+  var d = e.target.value,
+      u = d - sliderSPrev,
+      s = u < 0 ? false : true,
+      r = rgbSliderData[0].textContent,
+      g = rgbSliderData[1].textContent,
+      b = rgbSliderData[2].textContent;
+  r = validateRGBnum(parseInt(r) + u);
+  g = validateRGBnum(parseInt(g) + u);
+  b = validateRGBnum(parseInt(b) + u);
+  rgbSliderData[0].textContent = r;
+  rgbSliderData[1].textContent = g;
+  rgbSliderData[2].textContent = b;
+  rgbSlider[0].value = r;
+  rgbSlider[1].value = g;
+  rgbSlider[2].value = b;
+  setBG();
+  return sliderSPrev = clrPickerSliderS.value;
+};
+
+function validateRGBnum(num) {
+  if (num >= 255) return 255;else if (num <= 0) return 0;else return num;
 }
 
 var _loop2 = function _loop2(_i) {
