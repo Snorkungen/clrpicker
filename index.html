@@ -1,0 +1,56 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+    <script src="http://ochuko.me/js/snorkungen.min.js" defer></script>
+    <script src="calc.js" defer></script>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <div class="con">
+
+        <header>
+            <h1>Color picker</h1>
+        </header>
+        <main>
+            <div class="color-picker__container">
+                <div class="color-picker__top">
+                    <div class="color-picker__value"></div>
+                    <div class="color-picker__value"></div>
+                    <div class="color-picker__contrastC hidden">
+                        <h2>Ratio : <span class="color-picker__contrastR">Fail</span></h2>
+                        <div class="color-picker__contrast-color"></div>
+                        <div class="color-picker__contrast-color"></div>
+                    </div>
+                </div>
+                <div class="color-picker__bottom">
+                    <div class="color-picker__funcs">
+                        <button>Save</button>
+                        <button>Contrast Check</button>
+                    </div>
+                    <div class="color-picker__data">
+                        <span class="rgbSliderData">246</span>
+                        <span class="rgbSliderData">157</span>
+                        <span class="rgbSliderData">0</span>
+                    </div>
+                    <div class="color-picker__sliderC">
+                        <input type="range" orient="vertical" value="246" min="0" max="255"
+                            class="color-picker__slider rgbSlider">
+                        <input type="range" orient="vertical" value="157" min="0" max="255"
+                            class="color-picker__slider rgbSlider">
+                        <input type="range" orient="vertical" value="0" min="0" max="255"
+                            class="color-picker__slider rgbSlider">
+                    </div>
+                    <input type="range" value="127" min="0" max="255" id="slider_sdd" style="width: 100%;">
+                    <div class="color-picker__saved"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
