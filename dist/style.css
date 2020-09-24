@@ -96,7 +96,7 @@ main {
   background: var(--color-blue-2);
   outline: none;
   writing-mode: bt-lr;
-  -webkit-appearance: slider-vertical;
+  -webkit-appearance: slider-horizontal;
 }
 .color-picker__bottom #slider_sdd:hover {
   cursor: pointer;
@@ -235,11 +235,18 @@ main {
   flex-wrap: wrap;
   justify-content: center;
 }
-.extra .storage__C .storage__display .storage__display-item {
+.extra .storage__C .storage__display img.storage__display-item {
+  outline: none;
+  border: none;
+  box-shadow: none;
   width: 50px;
   height: 50px;
   background: #f33f40;
   margin: 5px;
+  cursor: move;
+}
+.extra .storage__C .storage__display img.storage__display-item.drag {
+  position: absolute;
 }
 .extra .storage__C .storage__edit {
   grid-column: 1/2;
@@ -247,7 +254,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/assets/edit-svgrepo-com.svg") no-repeat center;
+  background: url("../assets/edit-svgrepo-com.svg") no-repeat center;
   background-size: 65%;
   transition: all ease 340ms;
 }
@@ -261,7 +268,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/assets/trash-svgrepo-com.svg") no-repeat center;
+  background: url("../assets/trash-svgrepo-com.svg") no-repeat center;
   background-size: 65%;
   transition: all ease 340ms;
 }
