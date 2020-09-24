@@ -5,19 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Picker</title>
+    <script src="snorkungen.js" defer></script>
     <script src="calc.js" defer></script>
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
 <body>
-    <script defer>class Snorkungen{constructor(){function t(t){return new Promise(e=>{setTimeout(()=>{e(2)},t)})}let e=20,n=10;const r=t=>"object"==typeof t,i=t=>"string"==typeof t,o=t=>"number"==typeof t,s=t=>"function"==typeof t,l=t=>(t.sort(()=>1),t),c=t=>(t.sort(()=>2),t),a=t=>!t,u=(t,e)=>e.appendChild(document.createElement(t)),h=(t,e,n)=>t.setAttribute(e,n),d=(t,e)=>t.textContent=e,p=(t,i,s)=>{let l,c;if(!(o(i)&&o(s)&&r(t)))return!1;l=a(l)?i:0,c=a(c)?s:0,t.style.left=l-e+e+"px",t.style.top=c-n+n+"px"};this.verifyType=((t,e)=>{if(!i(e))return!1;switch(e){case"object":return r(t);case"number":return o(t);case"string":return i(t);case"function":return s(t);default:return!1}}),this.createEl=((t,e)=>!(!r(e)||!i(t))&&u(t,e)),this.removeEl=(t=>!!r(t)&&t.parentNode.removeChild(t)),this.setAttribute=((t,e,n)=>!!(r(t)&&i(e)&&i(n))&&h(t,e,n)),this.setTextContent=((t,e)=>!(!r(t)||!i(e))&&d(t,e)),this.emptyElement=(t=>!!r(t)&&(t.innerHTML="")),this.styleDisplay=((t,e)=>!(!i(e)||!r(t))&&(t.style.display=e)),this.tooltip=new function(){let t=u("div",document.body);h(t,"class","tooltip"),h(t,"hidden",""),this.click=(e=>{t.removeAttribute("hidden"),p(t,e.clientX,e.clientY),t.textContent=e.target.dataset.tooltip,setTimeout(function(){h(t,"hidden","")},4500),t.onclick=(e=>{h(t,"hidden","")})})},this.assault=((t,e)=>{if(!r(e)||!i(t))return!1;if("encode"==e.type){let n="",r="";for(let r=0;r<t.length;r++)32==t.charCodeAt(r)?n+=e.n*e.n2+".":n+=t.charCodeAt(r)+e.magicNumber+".";let i=l(n.split("."));for(let t=0;t<i.length;t++)i[t]==e.n*e.n2&&"."==i[t].charAt(0)&&(i[t]=i[t].substr(1)),r+=i[t]+".";return btoa(e.n*e.n2+r+"Snorkungen")}if("decode"==e.type){let n=atob(t),r=c(n.split(".")),i="";e.n=parseInt(r[r.length-1])/e.n2;for(let t=1;t<r.length-1;t++)r[t]==e.n*e.n2?i+=" ":i+=String.fromCharCode(r[t]-e.magicNumber);return i}}),this.animateWord=(async(e,n,s)=>{if(i(e)&&r(n)&&o(s)){sk.emptyElement(n);let r=e.split(""),i=n.children;r.forEach(t=>{let e=u("span",n);d(e,t)});for(let e=0;e<r.length;e++)h(i[e],"class","show-span"),await t(s);return!0}return!1})}}</script>
     <div class="con">
         <header>
             <h1>Color picker</h1>
         </header>
         <aside class="howto">
             <h1>How to use</h1>
+<<<<<<< Updated upstream
             <p>First use the three vertical sliders to find a color. <br><br>Second press save to save the color.<br><br>Third find another color.<br><br>Fourth press contrast check and then proceed to click the first color you saved.</p>
+=======
+            <p>First use the three sliders to find a color. <br><br>Second press save to save the color.<br><br>Third
+                find another color.<br><br>Fourth press contrast check and then proceed to click the first color you
+                saved.</p>
+>>>>>>> Stashed changes
             <h1>Random Info</h1>
             <p>The horizontal slider is used to change all of the other sliders.</p>
         </aside>
@@ -61,13 +67,37 @@
                 </div>
             </div>
         </main>
-        <aside class="longtermC__C">
-            <div class="longtermC__color" style="width: 40px; height: 40px; background: #333;"></div>
+        <aside class="extra">
+            <nav class="extra__nav">
+                <div class="extra__navB active" id="longterm-nav">Storage</div>
+                <div class="extra__navB" id="contrast-nav">Contrast info</div>
+            </nav>
+            <div class="cc contrast__C hidden"></div>
+            <div class="cc storage__C">
+                <div class="storage__display">
+                    <div class="storage__display-item" id="display-item-1"></div>
+                    <div class="storage__display-item" id="display-item-2"></div>
+                    <div class="storage__display-item" id="display-item-3"></div>
+                    <div class="storage__display-item" id="display-item-4"></div>
+                    <div class="storage__display-item" id="display-item-5"></div>
+                    <div class="storage__display-item" id="display-item-5"></div>
+                    <div class="storage__display-item" id="display-item-5"></div>
+                    <div class="storage__display-item" id="display-item-5"></div>
+                </div>
+                <div class="storage__edit"></div>
+                <div class="storage__trash"></div>
+            </div>
         </aside>
+<<<<<<< Updated upstream
         <footer>
             <p>Oghenochuko Oke 2020 <span> Color Picker</span></p>
         </footer>
+=======
+>>>>>>> Stashed changes
     </div>
+    <footer>
+        <p>Oghenochuko Oke 2020 <span>Color Picker</span></p>
+    </footer>
 </body>
 
 </html>
