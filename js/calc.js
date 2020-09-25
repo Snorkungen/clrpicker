@@ -108,16 +108,21 @@ function saveColor() {
             d2 = sk.createEl("div", d),
             h = sk.createEl("h2", d),
             h2 = sk.createEl("h2", d),
-            del = sk.createEl("button", d);
+            del = sk.createEl("button", d),
+            delSw = true;
 
         sk.setAttribute(d, 'class', 'color-picker__saved-child');
-        //sk.setAttribute(d, 'draggable', 'true');
         sk.setAttribute(del, 'class', 'cp-del');
 
         h.textContent = `rgb( ${r},${g},${b} )`;
         h2.textContent = `#${intToHex(r)}${intToHex(g)}${intToHex(b)}`;
         d2.style.background = gIn;
         del.textContent = "X"
+        
+        del.onclick = e => {
+            e.target.parentElement.remove();
+            delSw = false;
+        }
 
         d.addEventListener("click", async () => {
             if (contrastCheckSwitch) {
@@ -138,23 +143,23 @@ function saveColor() {
                 document.body.style.cursor = "default";
                 ccc = []
                 contrastCheckSwitch = false;
+
+            } else if (delSw) {
+                rgbSliderData[0].textContent = r;
+                rgbSliderData[1].textContent = g;
+                rgbSliderData[2].textContent = b;
+    
+                rgbSlider[0].value = r;
+                rgbSlider[1].value = g;
+                rgbSlider[2].value = b;
+                setBG();
+                delSw = true;
             }
-
-            rgbSliderData[0].textContent = r;
-            rgbSliderData[1].textContent = g;
-            rgbSliderData[2].textContent = b;
-
-            rgbSlider[0].value = r;
-            rgbSlider[1].value = g;
-            rgbSlider[2].value = b;
-            setBG();
         })
-        del.onclick = e => {
-            e.target.parentElement.remove();
-        }
         return true;
     } else return false
 }
+
 
 function setBG() {
     let r = rgbSliderData[0].textContent,

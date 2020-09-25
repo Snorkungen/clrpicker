@@ -25,17 +25,17 @@ document.addEventListener("dragover", function (event) {
   event.preventDefault();
 }, false);
 document.addEventListener("dragenter", function (event) {
-  if (event.target.id = "Sedit") {
+  if (event.target.id == "Sedit") {
     event.target.style.opacity = .4;
-  } else if (event.target.id = "Strash") {
+  } else if (event.target.id == "Strash") {
     event.target.style.opacity = .4;
   }
 }, false);
 document.addEventListener("dragleave", function (e) {
   // reset background of potential drop target when the draggable element leaves it
-  if (e.target.id = "Sedit") {
+  if (e.target.id == "Sedit") {
     e.target.style.opacity = 1;
-  } else if (e.target.id = "Strash") {
+  } else if (e.target.id == "Strash") {
     e.target.style.opacity = 1;
   }
 }, false);
@@ -43,9 +43,9 @@ document.addEventListener("drop", function (event) {
   console.log(event);
   event.preventDefault();
 
-  if (event.target.id = "Sedit") {
+  if (event.target.id == "Sedit") {
     dropDone();
-  } else if (event.target.id = "Strash") {
+  } else if (event.target.id == "Strash") {
     dragged.parentNode.removeChild(dragged);
     dropDone();
   }
