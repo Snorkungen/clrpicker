@@ -111,6 +111,7 @@ function saveColor() {
             del = sk.createEl("button", d);
 
         sk.setAttribute(d, 'class', 'color-picker__saved-child');
+        //sk.setAttribute(d, 'draggable', 'true');
         sk.setAttribute(del, 'class', 'cp-del');
 
         h.textContent = `rgb( ${r},${g},${b} )`;

@@ -23,7 +23,7 @@ body {
   min-height: 92vh;
   display: grid;
   grid-template-rows: 6rem auto;
-  grid-template-columns: 18% auto 18%;
+  grid-template-columns: 20% auto 20%;
   justify-items: center;
   min-width: 620px;
 }
@@ -235,7 +235,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
 }
-.extra .storage__C .storage__display img.storage__display-item {
+.extra .storage__C .storage__display .storage__display-item {
   outline: none;
   border: none;
   box-shadow: none;
@@ -245,7 +245,7 @@ main {
   margin: 5px;
   cursor: move;
 }
-.extra .storage__C .storage__display img.storage__display-item.drag {
+.extra .storage__C .storage__display .storage__display-item.drag {
   position: absolute;
 }
 .extra .storage__C .storage__edit {
