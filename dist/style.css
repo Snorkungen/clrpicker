@@ -243,7 +243,7 @@ main {
   height: 50px;
   background: #f33f40;
   margin: 5px;
-  cursor: move;
+  cursor: grab;
 }
 .extra .storage__C .storage__display .storage__display-item.drag {
   position: absolute;
@@ -258,10 +258,6 @@ main {
   background-size: 65%;
   transition: all ease 340ms;
 }
-.extra .storage__C .storage__edit:hover {
-  scale: 0.85;
-  rotate: -7deg;
-}
 .extra .storage__C .storage__trash {
   grid-column: 2/3;
   grid-row: 2/3;
@@ -272,9 +268,10 @@ main {
   background-size: 65%;
   transition: all ease 340ms;
 }
-.extra .storage__C .storage__trash:hover {
-  scale: 0.85;
-  rotate: -7deg;
+.extra .storage__C .storage__dragstart {
+  animation-name: borderA;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
 }
 
 footer {
@@ -295,6 +292,17 @@ footer p span {
   color: var(--color-red-1);
 }
 
+@keyframes borderA {
+  0% {
+    border: none;
+  }
+  50% {
+    border: 2px solid var(--color-red-1);
+  }
+  100% {
+    border: none;
+  }
+}
 .hidden {
   display: none;
 }
