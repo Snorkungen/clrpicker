@@ -5,6 +5,19 @@ var dDragItems = document.querySelectorAll(".storage__display-item"),
     storageTrash = document.querySelector(".storage__trash"),
     storageEdit = document.querySelector(".storage__edit");
 var dragged;
+var Colors = JSON.parse(localStorage.getItem("colors"));
+Colors.forEach(function (o) {
+  var x = o.c.split(",");
+  createStorageI(x[0], x[1], x[2]);
+});
+
+function createStorageI(r, g, b) {
+  var d = sk.createEl("div", storageDisp);
+  sk.setAttribute(d, "draggable", "true");
+  sk.setAttribute(d, "data-value", "".concat(r, ",").concat(g, ",").concat(b));
+  sk.setAttribute(d, "class", "storage__display-item");
+  d.style.background = "rgb(".concat(r, ",").concat(g, ",").concat(b, ")");
+}
 
 function sdItemDstart() {
   storageTrash.className += " storage__dragstart";
@@ -40,7 +53,6 @@ document.addEventListener("dragleave", function (e) {
 }, false);
 document.addEventListener("drop", function (event) {
   event.preventDefault();
-  console.log(dragged);
 
   if (event.target.id == "Sedit" && dragged.className == "storage__display-item") {
     var va = dragged.dataset.value.split(","),
@@ -56,8 +68,29 @@ document.addEventListener("drop", function (event) {
     setBG();
   } else if (event.target.id == "Strash" && dragged.className == "storage__display-item") {
     dragged.parentNode.removeChild(dragged);
-  } else if (event.target.id == "Sdisp" && dragged.className == "saved__color-D") {
-    alert("data");
+
+    var find = function find(e) {
+      return e.c == dragged.dataset.value;
+    },
+        index = Colors.findIndex(find);
+
+    Colors.splice(index, 1);
+    localStorage.setItem("colors", JSON.stringify(Colors));
+  } else if (event.target.id == "Sdisp" && dragged.className == "saved__color-D" || event.target.className == "storage__display-item" && dragged.className) {
+    var _va = dragged.dataset.value.split(","),
+        _r = _va[0],
+        _g = _va[1],
+        _b = _va[2],
+        co = {
+      c: "".concat(_r, ",").concat(_g, ",").concat(_b)
+    };
+
+    createStorageI(_r, _g, _b);
+    var getColors = JSON.parse(localStorage.getItem("colors"));
+    if (getColors == null) localStorage.setItem("colors", JSON.stringify([co]));else {
+      getColors.push(co);
+      localStorage.setItem("colors", JSON.stringify(getColors));
+    }
   }
 
   dropDone();
