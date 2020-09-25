@@ -105,13 +105,20 @@ function saveColor() {
         d2 = sk.createEl("div", d),
         h = sk.createEl("h2", d),
         h2 = sk.createEl("h2", d),
-        del = sk.createEl("button", d);
+        del = sk.createEl("button", d),
+        delSw = true;
     sk.setAttribute(d, 'class', 'color-picker__saved-child');
     sk.setAttribute(del, 'class', 'cp-del');
     h.textContent = "rgb( ".concat(r, ",").concat(g, ",").concat(b, " )");
     h2.textContent = "#".concat(intToHex(r)).concat(intToHex(g)).concat(intToHex(b));
     d2.style.background = gIn;
     del.textContent = "X";
+
+    del.onclick = function (e) {
+      e.target.parentElement.remove();
+      delSw = false;
+    };
+
     d.addEventListener("click", function _callee() {
       var x;
       return regeneratorRuntime.async(function _callee$(_context) {
@@ -119,7 +126,7 @@ function saveColor() {
           switch (_context.prev = _context.next) {
             case 0:
               if (!contrastCheckSwitch) {
-                _context.next = 19;
+                _context.next = 21;
                 break;
               }
 
@@ -155,28 +162,28 @@ function saveColor() {
               document.body.style.cursor = "default";
               ccc = [];
               contrastCheckSwitch = false;
+              _context.next = 22;
+              break;
 
-            case 19:
-              rgbSliderData[0].textContent = r;
-              rgbSliderData[1].textContent = g;
-              rgbSliderData[2].textContent = b;
-              rgbSlider[0].value = r;
-              rgbSlider[1].value = g;
-              rgbSlider[2].value = b;
-              setBG();
+            case 21:
+              if (delSw) {
+                rgbSliderData[0].textContent = r;
+                rgbSliderData[1].textContent = g;
+                rgbSliderData[2].textContent = b;
+                rgbSlider[0].value = r;
+                rgbSlider[1].value = g;
+                rgbSlider[2].value = b;
+                setBG();
+                delSw = true;
+              }
 
-            case 26:
+            case 22:
             case "end":
               return _context.stop();
           }
         }
       });
     });
-
-    del.onclick = function (e) {
-      e.target.parentElement.remove();
-    };
-
     return true;
   } else return false;
 }
