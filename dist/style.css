@@ -257,7 +257,7 @@ main {
   align-items: center;
   justify-content: center;
   background: url("../assets/edit-svgrepo-com.svg") no-repeat center;
-  background-size: 65%;
+  background-size: 40%;
   transition: all ease 340ms;
 }
 .extra .storage__C .storage__trash {
@@ -267,7 +267,7 @@ main {
   align-items: center;
   justify-content: center;
   background: url("../assets/trash-svgrepo-com.svg") no-repeat center;
-  background-size: 65%;
+  background-size: 40%;
   transition: all ease 340ms;
 }
 .extra .storage__C .storage__dragstart {

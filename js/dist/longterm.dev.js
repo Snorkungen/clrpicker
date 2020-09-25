@@ -6,10 +6,12 @@ var dDragItems = document.querySelectorAll(".storage__display-item"),
     storageEdit = document.querySelector(".storage__edit");
 var dragged;
 var Colors = JSON.parse(localStorage.getItem("colors"));
-Colors.forEach(function (o) {
-  var x = o.c.split(",");
-  createStorageI(x[0], x[1], x[2]);
-});
+if (Colors == null) localStorage.setItem("colors", JSON.stringify([]));else {
+  Colors.forEach(function (o) {
+    var x = o.c.split(",");
+    createStorageI(x[0], x[1], x[2]);
+  });
+}
 
 function createStorageI(r, g, b) {
   var d = sk.createEl("div", storageDisp);
@@ -76,7 +78,7 @@ document.addEventListener("drop", function (event) {
 
     Colors.splice(index, 1);
     localStorage.setItem("colors", JSON.stringify(Colors));
-  } else if (event.target.id == "Sdisp" && dragged.className == "saved__color-D" || event.target.className == "storage__display-item" && dragged.className) {
+  } else if (event.target.id == "Sdisp" && dragged.className == "saved__color-D" || event.target.className == "storage__display-item" && dragged.className == "saved__color-D") {
     var _va = dragged.dataset.value.split(","),
         _r = _va[0],
         _g = _va[1],
@@ -91,6 +93,7 @@ document.addEventListener("drop", function (event) {
       getColors.push(co);
       localStorage.setItem("colors", JSON.stringify(getColors));
     }
+    dragged.parentElement.parentElement.removeChild(dragged.parentElement);
   }
 
   dropDone();
