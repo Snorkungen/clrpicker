@@ -107,23 +107,15 @@ function saveColor() {
             h2 = sk.createEl("h2", d),
             del = sk.createEl("button", d),
             delSw = true;
-<<<<<<< HEAD:calc.js
-
-=======
         sk.setAttribute(d2, "draggable", "true");
         sk.setAttribute(d2, "data-value", `${r},${g},${b}`);
         sk.setAttribute(d2, "class", "saved__color-D");
->>>>>>> drag-longterm:js/calc.js
         sk.setAttribute(d, 'class', 'color-picker__saved-child');
         sk.setAttribute(del, 'class', 'cp-del');
         h.textContent = `rgb( ${r},${g},${b} )`;
         h2.textContent = `#${intToHex(r)}${intToHex(g)}${intToHex(b)}`;
         d2.style.background = gIn;
         del.textContent = "X"
-<<<<<<< HEAD:calc.js
-        
-=======
->>>>>>> drag-longterm:js/calc.js
         del.onclick = e => {
             e.target.parentElement.remove();
             delSw = false;
@@ -144,10 +136,6 @@ function saveColor() {
                 rgbSliderData[0].textContent = r;
                 rgbSliderData[1].textContent = g;
                 rgbSliderData[2].textContent = b;
-<<<<<<< HEAD:calc.js
-    
-=======
->>>>>>> drag-longterm:js/calc.js
                 rgbSlider[0].value = r;
                 rgbSlider[1].value = g;
                 rgbSlider[2].value = b;

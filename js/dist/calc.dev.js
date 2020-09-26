@@ -103,12 +103,9 @@ function saveColor() {
         h2 = sk.createEl("h2", d),
         del = sk.createEl("button", d),
         delSw = true;
-<<<<<<< HEAD:dist/calc.dev.js
-=======
     sk.setAttribute(d2, "draggable", "true");
     sk.setAttribute(d2, "data-value", "".concat(r, ",").concat(g, ",").concat(b));
     sk.setAttribute(d2, "class", "saved__color-D");
->>>>>>> drag-longterm:js/dist/calc.dev.js
     sk.setAttribute(d, 'class', 'color-picker__saved-child');
     sk.setAttribute(del, 'class', 'cp-del');
     h.textContent = "rgb( ".concat(r, ",").concat(g, ",").concat(b, " )");
@@ -128,11 +125,7 @@ function saveColor() {
           switch (_context.prev = _context.next) {
             case 0:
               if (!contrastCheckSwitch) {
-<<<<<<< HEAD:dist/calc.dev.js
-                _context.next = 21;
-=======
                 _context.next = 12;
->>>>>>> drag-longterm:js/dist/calc.dev.js
                 break;
               }
 
@@ -147,24 +140,6 @@ function saveColor() {
               document.body.style.cursor = "default";
               ccc = [];
               contrastCheckSwitch = false;
-<<<<<<< HEAD:dist/calc.dev.js
-              _context.next = 22;
-              break;
-
-            case 21:
-              if (delSw) {
-                rgbSliderData[0].textContent = r;
-                rgbSliderData[1].textContent = g;
-                rgbSliderData[2].textContent = b;
-                rgbSlider[0].value = r;
-                rgbSlider[1].value = g;
-                rgbSlider[2].value = b;
-                setBG();
-                delSw = true;
-              }
-
-            case 22:
-=======
               _context.next = 13;
               break;
 
@@ -181,7 +156,6 @@ function saveColor() {
               }
 
             case 13:
->>>>>>> drag-longterm:js/dist/calc.dev.js
             case "end":
               return _context.stop();
           }
