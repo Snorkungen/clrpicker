@@ -21,7 +21,6 @@ body {
 }
 
 .con {
-    min-height: 92vh;
     display: grid;
     grid-template-rows: 6rem auto;
     grid-template-columns: 20% auto 20%;
@@ -78,7 +77,7 @@ main {
     }
 
     &top {
-        height: 160px;
+        height: 200px;
         background: rgb(200, 200, 100);
     }
 
@@ -232,6 +231,7 @@ main {
 
 .extra {
     width: 100%;
+    height: calc(88vh - 4rem);
 
     &__nav {
         display: flex;
@@ -254,13 +254,71 @@ main {
 
             &.active {
                 opacity: 1;
+                &:hover {
+                    cursor: default;
+                }
             }
         }
     }
-
+    .cc.hidden {
+        display: none;
+    }
     .cc {
         background: var(--color-dark);
         height: 50vh;
+    }
+
+    .contrast__C {
+        color: var(--color-red-1);
+        font-family: var(--font-2);
+        text-align: center;
+
+        > h1 {
+            padding: 1rem 0 1.5rem 0;
+        
+        }
+        .contrast__foreground {
+            background-color: #aa46e4;
+            > p {
+                font-family: var(--font-1);
+                padding: 1rem 0;
+                width: 100%;
+                display: grid;
+                font-weight: 700;
+                grid-template-columns: 1fr 3fr 1fr;
+                > span {
+                    font-family: var(--font-1);
+                    font-size: 1.3rem;
+                    padding: 0.2rem 0.6rem;
+                    background: var(--color-dark);
+                    color: var(--color-red-1);
+                }
+                > span.w_lvl {
+                    text-align: left;
+                    border-radius: 0 10px 10px 0;
+                }
+                > span.w_p {
+                    text-align: right;
+                    border-radius: 10px 0 0 10px;
+                }
+                span.fail {
+                    background:red;
+                    color: #fff;
+                }
+                span.pass {
+                    background:#1a5f02;
+                    color: #fff;
+                }
+
+            }
+
+            > p.small {
+                font-size: 20px;
+            }
+            > p.large {
+                font-size: 25px;
+            }
+        }
     }
 
     .storage__C {
@@ -327,13 +385,13 @@ main {
 
 footer {
     width: 100%;
-    height: 8vh;
+    height: 10vh;
     background: var(--color-green-1);
     position: relative;
-
+    margin: 2rem 0 0 0;
     p {
         position: absolute;
-        bottom: 2.3rem;
+        top: 1.5rem;
         right: 2.3rem;
         font-family: var(--font-1);
 

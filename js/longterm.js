@@ -1,7 +1,25 @@
 const dDragItems = document.querySelectorAll(".storage__display-item"),
     storageDisp = document.querySelector(".storage__display"),
     storageTrash = document.querySelector(".storage__trash"),
-    storageEdit = document.querySelector(".storage__edit");
+    storageEdit = document.querySelector(".storage__edit"),
+
+    extraContrast = document.querySelector(".contrast__C"),
+    extraStorage = document.querySelector(".storage__C"),
+    extraNavc = document.querySelector("#contrast-nav"),
+    extraNavs = document.querySelector("#storage-nav")
+
+    extraNavc.onclick = e => {
+        extraNavc.className += " active";
+        extraNavs.className = "extra__navB";
+        sk.setAttribute(extraContrast,"class","cc contrast__C");
+        sk.setAttribute(extraStorage,"class","cc storage__C hidden");
+    }
+    extraNavs.onclick = e => {
+        extraNavs.className += " active";
+        extraNavc.className = "extra__navB";
+        sk.setAttribute(extraStorage,"class","cc storage__C")
+        sk.setAttribute(extraContrast,"class","cc contrast__C hidden")
+    }
 
 let dragged;
 
@@ -115,3 +133,4 @@ function dropDone() {
     storageDisp.className = "storage__display";
     storageDisp.style.border = "none";
 }
+

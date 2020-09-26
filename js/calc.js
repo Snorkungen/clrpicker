@@ -50,9 +50,9 @@ clrPickerSliderS.oninput = e => {
         g = rgbSliderData[1].textContent,
         b = rgbSliderData[2].textContent;
 
-    r=validateRGBnum(parseInt(r) + u);
-    g=validateRGBnum(parseInt(g) + u);
-    b=validateRGBnum(parseInt(b) + u);
+    r = validateRGBnum(parseInt(r) + u);
+    g = validateRGBnum(parseInt(g) + u);
+    b = validateRGBnum(parseInt(b) + u);
 
 
     rgbSliderData[0].textContent = r;
@@ -64,9 +64,10 @@ clrPickerSliderS.oninput = e => {
     rgbSlider[2].value = b;
 
     setBG();
-     return sliderSPrev = clrPickerSliderS.value;
+    return sliderSPrev = clrPickerSliderS.value;
 }
-function validateRGBnum (num) {
+
+function validateRGBnum(num) {
     if (num >= 255) return 255;
     else if (num <= 0) return 0;
     else return num;
@@ -77,10 +78,6 @@ for (let i = 0; i < rgbSlider.length; i++) {
         rgbSliderData[i].textContent = e.target.value;
         setBG();
     }
-}
-
-clrPickerSCc.onclick = e => {
-    sk.setAttribute(clrPickerSCc, "class", "color-picker__contrastC hidden")
 }
 
 function contrastCheck() {
@@ -97,7 +94,7 @@ function saveColor() {
         g = rgbSliderData[1].textContent,
         b = rgbSliderData[2].textContent,
         gIn = `rgb( ${r},${g},${b} )`;
-        
+
 
     for (let j = 0; j < clrPickerSC.children.length; j++) {
         if (clrPickerSC.children[j].children[1].textContent == gIn) return true;
@@ -110,18 +107,15 @@ function saveColor() {
             h2 = sk.createEl("h2", d),
             del = sk.createEl("button", d),
             delSw = true;
-
-        sk.setAttribute(d2,"draggable","true");
-        sk.setAttribute(d2,"data-value",`${r},${g},${b}`);
-        sk.setAttribute(d2,"class","saved__color-D");
+        sk.setAttribute(d2, "draggable", "true");
+        sk.setAttribute(d2, "data-value", `${r},${g},${b}`);
+        sk.setAttribute(d2, "class", "saved__color-D");
         sk.setAttribute(d, 'class', 'color-picker__saved-child');
         sk.setAttribute(del, 'class', 'cp-del');
-
         h.textContent = `rgb( ${r},${g},${b} )`;
         h2.textContent = `#${intToHex(r)}${intToHex(g)}${intToHex(b)}`;
         d2.style.background = gIn;
         del.textContent = "X"
-        
         del.onclick = e => {
             e.target.parentElement.remove();
             delSw = false;
@@ -131,18 +125,9 @@ function saveColor() {
             if (contrastCheckSwitch) {
                 saveColor();
                 ccc.push(`${intToHex(r)}${intToHex(g)}${intToHex(b)}`)
-                let x = await aw(ccc[0], ccc[1]);
-                clrPickerSCd[0].style.background = "#" + await x.q
-                clrPickerSCd[1].style.background = "#" + await x.w
+                let x = await aw(ccc[1], ccc[0]);
 
-                sk.setAttribute(clrPickerSCc, "class", "color-picker__contrastC")
-                if (parseInt(x.r.ratio) >= 5.01) {
-                    clrPickerSCr.textContent = "Pass";
-                    sk.setAttribute(clrPickerSCr, "class", "color-picker__contrastR pass")
-                } else {
-                    clrPickerSCr.textContent = "Fail";
-                    sk.setAttribute(clrPickerSCr, "class", "color-picker__contrastR fail")
-                }
+                contratDisplay(x);
                 document.body.style.cursor = "default";
                 ccc = []
                 contrastCheckSwitch = false;
@@ -151,7 +136,6 @@ function saveColor() {
                 rgbSliderData[0].textContent = r;
                 rgbSliderData[1].textContent = g;
                 rgbSliderData[2].textContent = b;
-    
                 rgbSlider[0].value = r;
                 rgbSlider[1].value = g;
                 rgbSlider[2].value = b;
@@ -214,4 +198,64 @@ async function aw(q, w) {
         q,
         w
     }
+}
+
+function contratDisplay(d) {
+    let foreground = document.querySelector(".contrast__foreground"),
+        wp = document.querySelectorAll(".w_p"),
+        ratio = document.querySelector(".color-picker__contrastR");
+
+    for (let i = 0; i < wp.length; i++) {
+        switch (i) {
+            case 0:
+                if (d.r.AA == "fail") {
+                    sk.setAttribute(wp[i], "class", "w_p fail");
+                    wp[i].textContent = "Fail"
+                } else {
+                    sk.setAttribute(wp[i], "class", "w_p pass");
+                    wp[i].textContent = "Pass"
+                }
+                break;
+            case 1:
+                if (d.r.AALarge == "fail") {
+                    sk.setAttribute(wp[i], "class", "w_p fail");
+                    wp[i].textContent = "Fail"
+                } else {
+                    sk.setAttribute(wp[i], "class", "w_p pass");
+                    wp[i].textContent = "Pass"
+                }
+                break;
+            case 2:
+                if (d.r.AAA == "fail") {
+                    sk.setAttribute(wp[i], "class", "w_p fail");
+                    wp[i].textContent = "Fail"
+                } else {
+                    sk.setAttribute(wp[i], "class", "w_p pass");
+                    wp[i].textContent = "Pass"
+                }
+                break;
+            case 3:
+                if (d.r.AAALarge == "fail") {
+                    sk.setAttribute(wp[i], "class", "w_p fail");
+                    wp[i].textContent = "Fail"
+                } else {
+                    sk.setAttribute(wp[i], "class", "w_p pass");
+                    wp[i].textContent = "Pass"
+                }
+                break;
+        }
+    }
+    ratio.textContent = d.r.ratio;
+    foreground.style.background = "#" + d.q;
+    foreground.style.color = "#" + d.w;
+
+    let extraContrast = document.querySelector(".contrast__C"),
+        extraStorage = document.querySelector(".storage__C"),
+        extraNavc = document.querySelector("#contrast-nav"),
+        extraNavs = document.querySelector("#storage-nav");
+    extraNavc.className += " active";
+    extraNavs.className = "extra__navB";
+
+    sk.setAttribute(extraContrast, "class", "cc contrast__C");
+    sk.setAttribute(extraStorage, "class", "cc storage__C hidden");
 }

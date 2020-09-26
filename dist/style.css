@@ -20,7 +20,6 @@ body {
 }
 
 .con {
-  min-height: 92vh;
   display: grid;
   grid-template-rows: 6rem auto;
   grid-template-columns: 20% auto 20%;
@@ -69,7 +68,7 @@ main {
   grid-template-areas: "a" "a";
 }
 .color-picker__top {
-  height: 160px;
+  height: 200px;
   background: #c8c864;
 }
 .color-picker__top > * {
@@ -197,6 +196,7 @@ main {
 
 .extra {
   width: 100%;
+  height: calc(88vh - 4rem);
 }
 .extra__nav {
   display: flex;
@@ -218,9 +218,63 @@ main {
 .extra__nav .extra__navB.active {
   opacity: 1;
 }
+.extra__nav .extra__navB.active:hover {
+  cursor: default;
+}
+.extra .cc.hidden {
+  display: none;
+}
 .extra .cc {
   background: var(--color-dark);
   height: 50vh;
+}
+.extra .contrast__C {
+  color: var(--color-red-1);
+  font-family: var(--font-2);
+  text-align: center;
+}
+.extra .contrast__C > h1 {
+  padding: 1rem 0 1.5rem 0;
+}
+.extra .contrast__C .contrast__foreground {
+  background-color: #aa46e4;
+}
+.extra .contrast__C .contrast__foreground > p {
+  font-family: var(--font-1);
+  padding: 1rem 0;
+  width: 100%;
+  display: grid;
+  font-weight: 700;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+.extra .contrast__C .contrast__foreground > p > span {
+  font-family: var(--font-1);
+  font-size: 1.3rem;
+  padding: 0.2rem 0.6rem;
+  background: var(--color-dark);
+  color: var(--color-red-1);
+}
+.extra .contrast__C .contrast__foreground > p > span.w_lvl {
+  text-align: left;
+  border-radius: 0 10px 10px 0;
+}
+.extra .contrast__C .contrast__foreground > p > span.w_p {
+  text-align: right;
+  border-radius: 10px 0 0 10px;
+}
+.extra .contrast__C .contrast__foreground > p span.fail {
+  background: red;
+  color: #fff;
+}
+.extra .contrast__C .contrast__foreground > p span.pass {
+  background: #1a5f02;
+  color: #fff;
+}
+.extra .contrast__C .contrast__foreground > p.small {
+  font-size: 20px;
+}
+.extra .contrast__C .contrast__foreground > p.large {
+  font-size: 25px;
 }
 .extra .storage__C {
   display: grid;
@@ -278,13 +332,14 @@ main {
 
 footer {
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   background: var(--color-green-1);
   position: relative;
+  margin: 2rem 0 0 0;
 }
 footer p {
   position: absolute;
-  bottom: 2.3rem;
+  top: 1.5rem;
   right: 2.3rem;
   font-family: var(--font-1);
 }

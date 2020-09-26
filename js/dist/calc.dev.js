@@ -77,10 +77,6 @@ for (var _i = 0; _i < rgbSlider.length; _i++) {
   _loop2(_i);
 }
 
-clrPickerSCc.onclick = function (e) {
-  sk.setAttribute(clrPickerSCc, "class", "color-picker__contrastC hidden");
-};
-
 function contrastCheck() {
   contrastCheckSwitch = true;
   document.body.style.cursor = "crosshair";
@@ -129,46 +125,25 @@ function saveColor() {
           switch (_context.prev = _context.next) {
             case 0:
               if (!contrastCheckSwitch) {
-                _context.next = 21;
+                _context.next = 12;
                 break;
               }
 
               saveColor();
               ccc.push("".concat(intToHex(r)).concat(intToHex(g)).concat(intToHex(b)));
               _context.next = 5;
-              return regeneratorRuntime.awrap(aw(ccc[0], ccc[1]));
+              return regeneratorRuntime.awrap(aw(ccc[1], ccc[0]));
 
             case 5:
               x = _context.sent;
-              _context.next = 8;
-              return regeneratorRuntime.awrap(x.q);
-
-            case 8:
-              _context.t0 = _context.sent;
-              clrPickerSCd[0].style.background = "#" + _context.t0;
-              _context.next = 12;
-              return regeneratorRuntime.awrap(x.w);
-
-            case 12:
-              _context.t1 = _context.sent;
-              clrPickerSCd[1].style.background = "#" + _context.t1;
-              sk.setAttribute(clrPickerSCc, "class", "color-picker__contrastC");
-
-              if (parseInt(x.r.ratio) >= 5.01) {
-                clrPickerSCr.textContent = "Pass";
-                sk.setAttribute(clrPickerSCr, "class", "color-picker__contrastR pass");
-              } else {
-                clrPickerSCr.textContent = "Fail";
-                sk.setAttribute(clrPickerSCr, "class", "color-picker__contrastR fail");
-              }
-
+              contratDisplay(x);
               document.body.style.cursor = "default";
               ccc = [];
               contrastCheckSwitch = false;
-              _context.next = 22;
+              _context.next = 13;
               break;
 
-            case 21:
+            case 12:
               if (delSw) {
                 rgbSliderData[0].textContent = r;
                 rgbSliderData[1].textContent = g;
@@ -180,7 +155,7 @@ function saveColor() {
                 delSw = true;
               }
 
-            case 22:
+            case 13:
             case "end":
               return _context.stop();
           }
@@ -271,4 +246,70 @@ function aw(q, w) {
       }
     }
   });
+}
+
+function contratDisplay(d) {
+  var foreground = document.querySelector(".contrast__foreground"),
+      wp = document.querySelectorAll(".w_p"),
+      ratio = document.querySelector(".color-picker__contrastR");
+
+  for (var _i2 = 0; _i2 < wp.length; _i2++) {
+    switch (_i2) {
+      case 0:
+        if (d.r.AA == "fail") {
+          sk.setAttribute(wp[_i2], "class", "w_p fail");
+          wp[_i2].textContent = "Fail";
+        } else {
+          sk.setAttribute(wp[_i2], "class", "w_p pass");
+          wp[_i2].textContent = "Pass";
+        }
+
+        break;
+
+      case 1:
+        if (d.r.AALarge == "fail") {
+          sk.setAttribute(wp[_i2], "class", "w_p fail");
+          wp[_i2].textContent = "Fail";
+        } else {
+          sk.setAttribute(wp[_i2], "class", "w_p pass");
+          wp[_i2].textContent = "Pass";
+        }
+
+        break;
+
+      case 2:
+        if (d.r.AAA == "fail") {
+          sk.setAttribute(wp[_i2], "class", "w_p fail");
+          wp[_i2].textContent = "Fail";
+        } else {
+          sk.setAttribute(wp[_i2], "class", "w_p pass");
+          wp[_i2].textContent = "Pass";
+        }
+
+        break;
+
+      case 3:
+        if (d.r.AAALarge == "fail") {
+          sk.setAttribute(wp[_i2], "class", "w_p fail");
+          wp[_i2].textContent = "Fail";
+        } else {
+          sk.setAttribute(wp[_i2], "class", "w_p pass");
+          wp[_i2].textContent = "Pass";
+        }
+
+        break;
+    }
+  }
+
+  ratio.textContent = d.r.ratio;
+  foreground.style.background = "#" + d.q;
+  foreground.style.color = "#" + d.w;
+  var extraContrast = document.querySelector(".contrast__C"),
+      extraStorage = document.querySelector(".storage__C"),
+      extraNavc = document.querySelector("#contrast-nav"),
+      extraNavs = document.querySelector("#storage-nav");
+  extraNavc.className += " active";
+  extraNavs.className = "extra__navB";
+  sk.setAttribute(extraContrast, "class", "cc contrast__C");
+  sk.setAttribute(extraStorage, "class", "cc storage__C hidden");
 }

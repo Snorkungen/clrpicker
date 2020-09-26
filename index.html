@@ -29,11 +29,6 @@
                 <div class="color-picker__top">
                     <div class="color-picker__value"></div>
                     <div class="color-picker__value"></div>
-                    <div class="color-picker__contrastC hidden">
-                        <h2>Ratio : <span class="color-picker__contrastR">Fail</span></h2>
-                        <div class="color-picker__contrast-color"></div>
-                        <div class="color-picker__contrast-color"></div>
-                    </div>
                 </div>
                 <div class="color-picker__bottom">
                     <div class="color-picker__funcs">
@@ -66,10 +61,19 @@
         </main>
         <aside class="extra">
             <nav class="extra__nav">
-                <div class="extra__navB active" id="longterm-nav">Storage</div>
                 <div class="extra__navB" id="contrast-nav">Contrast info</div>
+                <div class="extra__navB active" id="storage-nav">Storage</div>
             </nav>
-            <div class="cc contrast__C hidden"></div>
+            <div class="cc contrast__C  hidden">
+               <h1>WCAG 2.0</h1>
+               <div class="contrast__foreground">
+                   <p class="small"><span class="w_lvl">AA</span> ABC abc <span class="w_p">Fail</span></p>
+                   <p class="large"><span class="w_lvl">AA</span> ABC abc <span class="w_p">Pass</span></p>
+                   <p class="small"><span class="w_lvl">AAA</span> ABC abc <span class="w_p">Pass</span></p>
+                   <p class="large"><span class="w_lvl">AAA</span> ABC abc <span class="w_p">Pass</span></p>
+               </div>
+               <h2>Ratio : <span class="color-picker__contrastR"></span></h2>
+            </div>
             <div class="cc storage__C">
                 <div class="storage__display" id="Sdisp"></div>
                 <div class="storage__edit" id="Sedit"></div>

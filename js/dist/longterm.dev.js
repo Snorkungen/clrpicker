@@ -3,7 +3,26 @@
 var dDragItems = document.querySelectorAll(".storage__display-item"),
     storageDisp = document.querySelector(".storage__display"),
     storageTrash = document.querySelector(".storage__trash"),
-    storageEdit = document.querySelector(".storage__edit");
+    storageEdit = document.querySelector(".storage__edit"),
+    extraContrast = document.querySelector(".contrast__C"),
+    extraStorage = document.querySelector(".storage__C"),
+    extraNavc = document.querySelector("#contrast-nav"),
+    extraNavs = document.querySelector("#storage-nav");
+
+extraNavc.onclick = function (e) {
+  extraNavc.className += " active";
+  extraNavs.className = "extra__navB";
+  sk.setAttribute(extraContrast, "class", "cc contrast__C");
+  sk.setAttribute(extraStorage, "class", "cc storage__C hidden");
+};
+
+extraNavs.onclick = function (e) {
+  extraNavs.className += " active";
+  extraNavc.className = "extra__navB";
+  sk.setAttribute(extraStorage, "class", "cc storage__C");
+  sk.setAttribute(extraContrast, "class", "cc contrast__C hidden");
+};
+
 var dragged;
 var Colors = JSON.parse(localStorage.getItem("colors"));
 if (Colors == null) localStorage.setItem("colors", JSON.stringify([]));else {
